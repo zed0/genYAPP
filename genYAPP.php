@@ -218,7 +218,7 @@ fclose($inFile);
 $fileNamesOut = fopen('fileNames'.date('dmy').'.txt', 'w');
 foreach($fileNames as $name)
 {
-	fwrite($fileNamesOut, $name."\n");
+	fwrite($fileNamesOut, $name."\r\n");
 }
 fclose($fileNamesOut);
 
