@@ -32,11 +32,17 @@ if($_FILES['uploadedFile'])
 		mkdir($tempDir);
 		chdir('./' . $tempDir);
 		exec('../genYAPP.php ' . '.' . $targetPath);
+		exec('ls -R ./*', $filesCreated);
 		exec('zip -r ../' . $destDir . $destName . ' .');
 		chmod('../' . $destDir . $destName, 0755);
 		echo('<a href="./' . $destDir . $destName . '" >Download ' . $destName . '</a><br />');
 		chdir('../');
 		exec('rm -rf ' . $tempDir);
+		echo('<br />Files produced:<br />');
+		foreach($filesCreated as $file)
+		{
+			echo($file . '<br />');
+		}
 	}
 	else
 	{
